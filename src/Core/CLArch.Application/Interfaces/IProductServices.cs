@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CLArch.Domain
+namespace CLArch.Application.Interfaces
 {
-    public class NewClass
+    public interface IProductServices
     {
-        
+
     }
+
 }

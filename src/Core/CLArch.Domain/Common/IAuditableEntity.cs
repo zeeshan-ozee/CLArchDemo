@@ -7,16 +7,16 @@ namespace CLArch.Domain.Common
 {
     public interface IAuditableEntity
     {
-        bool IsDeleted { get; set; }
-        DateTime CreatedOn { get; set; }
+        public bool IsDeleted { get; set; } 
+        public DateTime CreatedOn { get; set; }
 
         //Author
-        string CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
 
 
-        DateTime ModifiedOn { get; set; }
+        public DateTime? ModifiedOn { get; set; }
 
         //Editor
-        string ModifieddBy { get; set; }
+        public string? ModifieddBy { get; set; }
     }
 }

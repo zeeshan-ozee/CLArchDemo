@@ -1,0 +1,21 @@
+@host=http://localhost:5067
+@password="123123123"
+POST  {{host}}/auth/login
+Content-Type: application/json
+
+{
+   
+    "email":"zeeshan@live.com",
+    "password":{{password}}
+}
+###
+
+POST  {{host}}/auth/register
+Content-Type: application/json
+
+{
+     "firstName":"zeeshan",
+    "lastName":"asghar",
+    "email":"zeeshan@live.com",
+    "password":{{password}}
+}
