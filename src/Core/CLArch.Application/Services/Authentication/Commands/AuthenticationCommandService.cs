@@ -10,48 +10,16 @@ using CLArch.Domain.Entities.Authentication;
 
 namespace CLArch.Application.Services.Authentication
 {
-    // public class AuthenticationResult
-    // {
-    //     public Guid Id { get; set; }
-    //     public string FirstName { get; set; }
-    //     public string LastName { get; set; }
-    //     public string Email { get; set; }
-    //     public string Token { get; set; }
-    // }
-    public interface IAuthenticationService
-    {
-        AuthenticationResponse Login(LoginRequest request);
-        AuthenticationResponse Register(RegisterRequest request);
-    }
-    public class AuthenticationService : IAuthenticationService
+    public class AuthenticationCommandService : IAuthenticationCommandService
     {
         readonly IUserRepository _userRepository;
         readonly IJwtTokenGenerator _tokenGenerator;
-        public AuthenticationService(IJwtTokenGenerator tokenGenerator, IUserRepository userRepository)
+        public AuthenticationCommandService(IJwtTokenGenerator tokenGenerator, IUserRepository userRepository)
         {
             _tokenGenerator = tokenGenerator;
             _userRepository = userRepository;
         }
-        public AuthenticationResponse Login(LoginRequest request)
-        {
-            if (_userRepository.GetUserByEmail(request.Email) is not User user)
-            {
-                throw new Exception("USer with given email addre not found");
-            }
 
-            if (request.Password != user.Password)
-            {
-                throw new Exception("Invalid credentials.");
-            }
-            return new AuthenticationResponse
-            {
-                Id = Guid.NewGuid(),
-                Email = request.Email,
-                FirstName = "FirstNAME",
-                LastName = "lastNAME",
-                Token = Guid.NewGuid().ToString()
-            };
-        }
 
         public AuthenticationResponse Register(RegisterRequest request)
         {

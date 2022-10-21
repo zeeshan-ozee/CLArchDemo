@@ -20,7 +20,8 @@ namespace CLArch.Application
 
             services.AddScoped<IMasterServices, MasterServices>();
             services.AddScoped<IProductServices, ProductServices>();
-            services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddScoped<IAuthenticationCommandService, AuthenticationCommandService>();
+            services.AddScoped<IAuthenticationQueryService, AuthenticationQueryService>();
 
             return services;
         }
