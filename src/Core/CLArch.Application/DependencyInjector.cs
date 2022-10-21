@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CLArch.Application.Interfaces;
 using CLArch.Application.Services;
 using CLArch.Application.Services.Authentication;
+using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,8 +21,12 @@ namespace CLArch.Application
 
             services.AddScoped<IMasterServices, MasterServices>();
             services.AddScoped<IProductServices, ProductServices>();
-            services.AddScoped<IAuthenticationCommandService, AuthenticationCommandService>();
-            services.AddScoped<IAuthenticationQueryService, AuthenticationQueryService>();
+
+            //WE are using MediatR so we donot need Services any more
+            // services.AddScoped<IAuthenticationCommandService, AuthenticationCommandService>();
+            // services.AddScoped<IAuthenticationQueryService, AuthenticationQueryService>();
+
+            services.AddMediatR(typeof(DependencyInjector).Assembly);
 
             return services;
         }
