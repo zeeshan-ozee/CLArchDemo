@@ -365,3 +365,4 @@ MigrationBackup/
 *.vsix
 .vscode
 .vs
+.dependencygraph
