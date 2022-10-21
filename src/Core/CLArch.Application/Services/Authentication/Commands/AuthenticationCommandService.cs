@@ -29,7 +29,7 @@ namespace CLArch.Application.Services.Authentication
             //check if user does not exists
             if (_userRepository.GetUserByEmail(request.Email) is not null)
             {
-                throw new DuplicateEmailException("User exists.");
+                throw new DuplicateEmailException(DuplicateEmailException.ExMessage);
             }
 
             //create user

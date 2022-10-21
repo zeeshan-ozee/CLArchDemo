@@ -27,7 +27,7 @@ namespace CLArch.Application.Models.Authentication.Commands
             if (_userRepository.GetUserByEmail(command.Email) is not null)
             {
                 // return Errors.User.DuplicateEmail;
-                throw new DuplicateEmailException("User exists.");
+                throw new DuplicateEmailException(DuplicateEmailException.ExMessage);
             }
 
             var user = new User

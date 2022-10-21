@@ -40,8 +40,13 @@ namespace CLArch.WebApi.Controllers
 
             // RegisterUserRequestValidator validator = new RegisterUserRequestValidator();
             // FluentValidation.Results.ValidationResult result = validator.Validate(request);
-            // if (!result.IsValid) return ValidationProblem(ModelState);  //Results.ValidationProblem(result.ToDictionary());
+            // if (!result.IsValid)
+            // {
+            //     System.Console.WriteLine("Fluent validation failed");
+            //     //return ValidationProblem(ModelState);  //Results.ValidationProblem(result.ToDictionary());
+            // }
 
+            System.Console.WriteLine("Fluent validation passed");
             // _cancelTokenSource = new CancellationTokenSource();
             // _cancelTokenSource.CancelAfter(4000);
             // Task.Delay(5000);

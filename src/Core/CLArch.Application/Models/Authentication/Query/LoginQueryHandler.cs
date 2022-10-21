@@ -6,6 +6,7 @@ using CLArch.Application.Exceptions;
 using CLArch.Application.Interfaces;
 using CLArch.Application.Interfaces.Authentication;
 using CLArch.Domain.Entities.Authentication;
+using CLArch.Domain.Exceptions;
 using MediatR;
 
 namespace CLArch.Application.Models.Authentication.Query
@@ -24,12 +25,12 @@ namespace CLArch.Application.Models.Authentication.Query
         {
             if (_userRepository.GetUserByEmail(request.Email) is not User user)
             {
-                throw new DuplicateEmailException("USer with given email address not found");
+                throw new UserNotFoundException("USer with given email address not found");
             }
 
             if (request.Password != user.Password)
             {
-                throw new WrongCredentialsException("Invalid credentials.");
+                throw new WrongCredentialsException(WrongCredentialsException.ExMessage);
             }
 
             //generate jwt

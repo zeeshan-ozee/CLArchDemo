@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CLArch.Application
+namespace CLArch.Domain.Entities
 {
-    public class NewClass
+    public class TestEntity
     {
-        
+        public int Id { get; set; }
     }
 }

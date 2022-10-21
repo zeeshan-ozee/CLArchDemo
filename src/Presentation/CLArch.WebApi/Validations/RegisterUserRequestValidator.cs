@@ -11,7 +11,14 @@ namespace CLArch.WebApi.Validations
     {
         public RegisterUserRequestValidator()
         {
-            RuleFor(c => c.Email).NotNull().Equal("abc@hotmail.com").When(x => x.FirstName != "abcxyz");
+            System.Console.WriteLine("In fluent validation.");
+
+            RuleFor(c => c.FirstName)
+            .NotNull()
+            .NotEmpty()
+            //.Equal("abc@hotmail.com")
+            .When(x => x.LastName == "abcxyz")
+            .WithMessage("Please provide correct first name");
         }
     }
 }
