@@ -1,6 +1,7 @@
 using CLArch.Application;
 using CLArch.Infrastructure;
 using CLArch.Persistance;
+using CLArch.WebApi.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 {
@@ -18,6 +19,7 @@ var builder = WebApplication.CreateBuilder(args);
 }
 var app = builder.Build();
 {
+    app.UseMiddleware<ErrorHandlingMiddleware>();
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
     {

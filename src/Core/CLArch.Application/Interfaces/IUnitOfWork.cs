@@ -7,17 +7,17 @@ using CLArch.Domain.Master;
 
 namespace CLArch.Application.Interfaces
 {
-    public interface IUnitOfWork
-    {
-        IRepository<AppSetting> AppSettingRepo { get; }
+    // public interface IUnitOfWork
+    // {
+    //     IGenericRepository<AppSetting> AppSettingRepo { get; }
 
-        IRepository<Category> CategoryRepo { get; }
+    //     IGenericRepository<Category> CategoryRepo { get; }
 
-        Task<int> SaveAsync();
+    //     Task<int> SaveAsync();
 
-        void BeginTransaction();
-        void CommitTransaction();
+    //     void BeginTransaction();
+    //     void CommitTransaction();
 
-        void RollbackTransaction();
-    }
+    //     void RollbackTransaction();
+    // }
 }

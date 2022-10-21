@@ -12,6 +12,7 @@ namespace CLArch.WebApi.Controllers
     [Route("auth")]
     public class AuthenticationController : ControllerBase
     {
+        CancellationTokenSource _cancelTokenSource = null;
         readonly IAuthenticationService _authService;
         public AuthenticationController(IAuthenticationService authService)
         {
@@ -20,14 +21,22 @@ namespace CLArch.WebApi.Controllers
 
         [HttpPost]
         [Route("register")]
-        public IActionResult Register(RegisterRequest request)
+        public async Task<IActionResult> Register(RegisterRequest request, CancellationToken token = default)
         {
+            // _cancelTokenSource = new CancellationTokenSource();
+            // _cancelTokenSource.CancelAfter(4000);
+            // Task.Delay(5000);
+            // CancellationToken _token = _cancelTokenSource.Token;
+            // if (_token.IsCancellationRequested)
+            //     _token.ThrowIfCancellationRequested();
+
+
             return Ok(_authService.Register(request));
         }
 
         [HttpPost]
         [Route("login")]
-        public IActionResult Login(LoginRequest request)
+        public async Task<IActionResult> Login(LoginRequest request, CancellationToken token = default)
         {
             return Ok(_authService.Login(request));
         }

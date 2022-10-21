@@ -9,11 +9,11 @@ namespace CLArch.Application.Services
 {
     public class MasterServices : IMasterServices
     {
-        readonly IUnitOfWork _uow;
-        public MasterServices(IUnitOfWork uow)
-        {
-            _uow = uow;
-        }
+        // readonly IUnitOfWork _uow;
+        // public MasterServices(IUnitOfWork uow)
+        // {
+        //     _uow = uow;
+        // }
         public Task<int> AddNewSetting(AppSetting newSetting)
         {
             throw new NotImplementedException();
@@ -21,9 +21,10 @@ namespace CLArch.Application.Services
 
         public Task<List<AppSetting>> GetAppSettingAsync()
         {
-            var appsettings = _uow.AppSettingRepo.TableNoTracking.OrderBy(x => x.Description).ToList();
+            // var appsettings = _uow.AppSettingRepo.TableNoTracking.OrderBy(x => x.Description).ToList();
 
-            return Task.FromResult(appsettings);
+            // return Task.FromResult(appsettings);
+            throw new NotImplementedException();
         }
     }
 }

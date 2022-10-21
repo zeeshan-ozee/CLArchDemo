@@ -23,8 +23,9 @@ namespace CLArch.Persistance
 
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationContext>());
 
-            services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            // services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            // services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddSingleton<IUserRepository, UserRepository>();
             return services;
 
         }
