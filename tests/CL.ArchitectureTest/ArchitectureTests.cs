@@ -107,4 +107,36 @@ namespace CL.ArchitectureTest
 
 
     }
+
+
+    /*
+    
+    // Only classes in the data namespace can have a dependency on System.Data
+var result = Types.InCurrentDomain()
+    .That().HaveDependencyOn("System.Data")
+    .And().ResideInNamespace(("ArchTest"))
+    .Should().ResideInNamespace(("NetArchTest.SampleLibrary.Data"))
+    .GetResult();
+
+// All the classes in the data namespace should implement IRepository
+var result = Types.InCurrentDomain()
+    .That().ResideInNamespace(("NetArchTest.SampleLibrary.Data"))
+    .And().AreClasses()
+    .Should().ImplementInterface(typeof(IRepository<>))
+    .GetResult();
+
+// Classes that implement IRepository should have the suffix "Repository"
+var result = Types.InCurrentDomain()
+    .That().ResideInNamespace(("NetArchTest.SampleLibrary.Data"))
+    .And().AreClasses()
+    .Should().HaveNameEndingWith("Repository")
+    .GetResult();
+
+// All the service classes should be sealed
+var result = Types.InCurrentDomain()
+    .That().ImplementInterface(typeof(IWidgetService))
+    .Should().BeSealed()
+    .GetResult();
+    
+    */
 }

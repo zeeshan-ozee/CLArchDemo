@@ -10,6 +10,7 @@ using CLArch.Application.Models.Authentication.Commands;
 using CLArch.Application.Models.Authentication.Query;
 using MapsterMapper;
 using CLArch.WebApi.Validations;
+using AutoWrapper.Wrappers;
 
 namespace CLArch.WebApi.Controllers
 {
@@ -70,6 +71,8 @@ namespace CLArch.WebApi.Controllers
             var registerResult = _mediator.Send(registerCommand, cancellationToken);
 
             return Ok(registerResult);
+
+            //return new ApiResponse("New record has been created in the database.", registerResult, 200);
         }
 
         [HttpPost]

@@ -6,6 +6,7 @@ using CLArch.Persistance;
 using CLArch.WebApi.Mapping;
 using CLArch.WebApi.Middleware;
 using Mapster;
+using AutoWrapper;
 
 var builder = WebApplication.CreateBuilder(args);
 {
@@ -38,6 +39,8 @@ var app = builder.Build();
         app.UseSwagger();
         app.UseSwaggerUI();
     }
+
+    //app.UseApiResponseAndExceptionWrapper();
 
     app.UseHttpsRedirection();
 
