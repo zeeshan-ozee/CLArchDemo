@@ -41,8 +41,8 @@ namespace CLArch.Application.Models.Authentication.Query
             {
                 Id = user.Id,
                 Email = request.Email,
-                FirstName = "FirstNAME",
-                LastName = "lastNAME",
+                FirstName = user.FirstName,
+                LastName = user.LastName,
                 Token = token
             };
         }
