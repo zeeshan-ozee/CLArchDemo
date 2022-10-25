@@ -95,13 +95,14 @@ namespace CL.ArchitectureTest
 
             var testResults = Types
            .InAssembly(appAssembly)
-           .That()
-           .ResideInNamespace("CLArch.Domain.Entities")
-           .Should()
-           .Inherit(typeof(CLArch.Domain.Common.BaseEntity<>).GetType())
-           .GetResult();
+           .That().ResideInNamespace("CLArch.Domain.Entities.Independent")
+           .And().AreClasses()
+          // .Should().BePublic().And().NotBeSealed()
+           .Should().Inherit(typeof(CLArch.Domain.Common.BaseEntity<>))
 
-            //assert
+           .GetResult();
+            
+            //assertw
             testResults.IsSuccessful.Should().BeTrue();
         }
 
