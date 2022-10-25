@@ -14,7 +14,5 @@ public static class DependencyInjector
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
 
         return services;
-
     }
-
 }

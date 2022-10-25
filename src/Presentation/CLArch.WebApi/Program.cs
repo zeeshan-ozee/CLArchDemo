@@ -26,9 +26,6 @@ var builder = WebApplication.CreateBuilder(args);
     // TypeAdapterConfig<RegisterRequest, LoginRequest>.NewConfig();
     //.Map(dest => dest.FullName, src => $"{src.Title} {src.FirstName} {src.LastName}");
 
-
-
-
 }
 var app = builder.Build();
 {
