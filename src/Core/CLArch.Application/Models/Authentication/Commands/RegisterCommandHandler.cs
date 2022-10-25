@@ -12,12 +12,15 @@ namespace CLArch.Application.Models.Authentication.Commands
 {
     public class RegisterCommandHandler : IRequestHandler<RegisterCommand, AuthenticationResponse>
     {
+        readonly INotificationService _notificationService;
         readonly IJwtTokenGenerator _jwtTokenGenerator;
         readonly IUserRepository _userRepository;
-        public RegisterCommandHandler(IJwtTokenGenerator jwtTokenGenerator, IUserRepository iUserRepo)
+        public RegisterCommandHandler(IJwtTokenGenerator jwtTokenGenerator, IUserRepository iUserRepo,
+        INotificationService notificationService)
         {
             _jwtTokenGenerator = jwtTokenGenerator;
             _userRepository = iUserRepo;
+            _notificationService = notificationService;
         }
 
         public async Task<AuthenticationResponse> Handle(RegisterCommand command, CancellationToken cancellationToken)
@@ -46,6 +49,8 @@ namespace CLArch.Application.Models.Authentication.Commands
             user.Id = Guid.NewGuid();
 
             var token = _jwtTokenGenerator.GenerateToken(user);
+
+            await _notificationService.SendInvitationViaEmailAsync("Notification sender===> ", user.Email, "System@sys,com");
 
             return new AuthenticationResponse(user.Id, user.FirstName, user.LastName, user.Email, token);
         }

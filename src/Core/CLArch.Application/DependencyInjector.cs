@@ -28,6 +28,9 @@ namespace CLArch.Application
 
             services.AddMediatR(typeof(DependencyInjector).Assembly);
 
+
+
+
             return services;
         }
 
